@@ -57,7 +57,7 @@ const CustomImg: FC = (props) => {
 }
 
 export const Img = ({src}: {src: string}) => (
-  <div style={{ border: "1px solid white"}} >
+  <div style={{ border: "1px solid white", marginBottom: "32px"}} >
       <img src={src} />
   </div>
 )
