@@ -1,6 +1,5 @@
-import { Box, Typography, TypographySystem } from '@mui/joy'
+import { Box, Typography } from '@mui/joy'
 import type { MDXComponents } from 'mdx/types'
-import { Url } from 'next/dist/shared/lib/router/router';
 import Link, { LinkProps } from 'next/link';
 import { FC } from 'react';
 
@@ -51,6 +50,12 @@ const CustomHeading: FC<CustomHeadingProps> = (props) => {
   return <Typography level={level}>{children}</Typography>
 }
 
+const CustomImg: FC = (props) => {
+  return <Box border="1px solid white">
+    <img {...props} />
+  </Box>
+}
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
@@ -59,5 +64,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children, ...rest }) => <CustomHeading level="h3" {...rest}>{children}</CustomHeading>,
     h4: ({ children, ...rest }) => <CustomHeading level="h4" {...rest}>{children}</CustomHeading>,
     a: ({ children, ...rest }) => <CustomLink {...rest}>{children}</CustomLink>,
+    img: ({ children, ...rest }) => <CustomImg {...rest}>{children}</CustomImg>,
   }
 }

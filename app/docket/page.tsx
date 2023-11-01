@@ -22,13 +22,17 @@ const Docket: FC = () => {
         .map((key, i) => {
             const item = index[key]
             return (
-                <Link key={i} href={key}>
-                    <Typography level="h2">{item.title}</Typography>
-                </Link>
+                <Typography key={i} level="h3">
+                    <Link href={key}>
+                        {item.title}
+                    </Link>
+                </Typography>
             )
         })
     return <Box display="flex" flexDirection="column">
+        <h1>Your guides:</h1>
         {items}
+
     </Box>
 }
 

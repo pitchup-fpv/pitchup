@@ -1,0 +1,46 @@
+# Adding New Gear to the Pitchup Wizard
+
+Thank you for your interest in contributing to Pitchup! This guide will walk you through the process of adding new device configurations to the Pitchup wizard. Don't worry, you won't need any special programming skills or technical knowledge. Let's get started!
+
+## Overview
+
+Device configurations are simple text files that end with ".ts". These files define devices, their options, and flags. Each device, its flags, and options are associated with guides that are useful for those devices.
+
+The configurations are stored in `src/config/drones/`, `src/config/radios/`, or `src/config/goggles` directories. You can organize the files under these folders however you want.
+
+## Understanding Flags and Options
+
+Flags and options are used to provide additional information about a device. Flags are simple on/off switches that can add additional guides to the user's docket when turned on. Options, on the other hand, are a list of choices, each of which can add different guides to the docket.
+
+Here's how they are defined in a configuration file:
+
+- **Flags**: Flags are defined as a list of objects, each with a `name` and `articles` property. The `name` is a descriptive label for the flag, and `articles` is a list of guide paths that should be added to the docket when the flag is selected.
+
+- **Options**: Options are defined as a list of objects, each with a `name` and `choices` property. The `name` is a descriptive label for the option, and `choices` is a list of choice objects. Each choice object has a `name` and `articles` property, where `name` is the label for the choice, and `articles` is a list of guide paths that should be added to the docket when this choice is selected.
+
+## Adding a New Device Configuration
+
+1. **Choose the right category**: Based on the type of device configuration you're creating (drone, radio, or goggle), you'll need to find the corresponding folder.
+
+2. **Create a new file**: In the chosen folder, create a new text file. Make sure the file ends with ".ts". For example, if you're adding a configuration for the DJI Phantom drone, you could name your file "DJI_Phantom.ts".
+
+3. **Define the configuration**: Now, you can start defining your device configuration in the new file. Here's a basic template you can use:
+
+```ts
+import { Config } from "@/src/types/Config";
+
+export const config = {
+    name: "Your Device Name",
+    articles: [],
+    flags: [],
+    options: []
+} satisfies Config
+```
+
+Replace "Your Device Name" with the name of your device. If your device has flags or options, you can add them to the `flags` and `options` lists respectively. Refer to the examples given above to understand how to define flags and options.
+
+4. **Save your configuration**: Once you're done defining your device configuration, save the file.
+
+## Summary
+
+That's it! By following these steps, you can contribute your own device configurations to Pitchup. We appreciate your contributions and look forward to seeing your configurations on Pitchup!

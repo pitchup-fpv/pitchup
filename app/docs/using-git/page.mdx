@@ -1,0 +1,62 @@
+# Contributing to Pitchup via Git
+
+Thank you for your interest in contributing to Pitchup! This guide will walk you through the process of adding guides or device configurations using Git. Let's get started!
+
+## Cloning the Repository
+
+First, you'll need to clone the Pitchup repository to your local machine. Here's how to do it:
+
+1. Visit the [Pitchup repository](https://github.com/pitchup-fpv/pitchup).
+2. Click on the "Code" button and copy the URL provided.
+3. Open a terminal on your local machine, navigate to the directory where you want to clone the repository, and run the following command:
+
+```
+git clone https://github.com/YourRepository/Pitchup.git
+```
+
+Replace the URL with the one you copied from GitHub.
+
+## Creating a New Branch
+
+Before you make any changes, it's a good practice to create a new branch. This keeps your changes isolated and makes it easier to incorporate them into the main project later.
+
+```
+git checkout -b your-branch-name
+```
+
+Replace "your-branch-name" with a descriptive name for your branch (for example, "add-new-guide" or "update-device-config").
+
+## Adding or Modifying Files
+
+Now, you can add or modify files in your local copy of the repository. If you're adding a new guide, create a new .mdx file in the appropriate directory. If you're adding a new device configuration, create a new .ts file in the appropriate directory.
+
+Once you've made your changes, you can check the status of your repository to see which files have been modified:
+
+```
+git status
+```
+
+## Committing Your Changes
+
+Once you're happy with your changes, you can commit them to your branch:
+
+```
+git add .
+git commit -m "Your descriptive commit message"
+```
+
+Replace "Your descriptive commit message" with a message that describes the changes you've made.
+
+## Pushing Your Changes and Creating a Pull Request
+
+Finally, you can push your changes to GitHub and create a pull request:
+
+```
+git push origin your-branch-name
+```
+
+Replace "your-branch-name" with the name of your branch.
+
+Then, go back to the [Pitchup repository](https://github.com/YourRepository/Pitchup) on GitHub, switch to your new branch, and click "New pull request". Give your pull request a title and describe what you've done.
+
+That's it! Your changes have been submitted and will be reviewed. You'll be notified once your pull request has been accepted and your changes have been merged into the project. Thank you for contributing to Pitchup!

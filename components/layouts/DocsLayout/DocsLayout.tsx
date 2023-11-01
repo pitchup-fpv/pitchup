@@ -1,21 +1,17 @@
-import { Breadcrumbs } from '@/components/Breadcrumbs/Breadcrumbs';
-
 import TocObserver from '@/components/TocObserver/TocObserver';
 
 
-const ArticleLayout = ({
+const DocsLayout = ({
   children,
 }: {
   children: React.ReactNode
 }) => {
   return <>
     <TocObserver />
-    <Breadcrumbs />
     <main className='content'>
       {children}
     </main>
-    <Breadcrumbs />
   </>
 }
 
-export default ArticleLayout
+export default DocsLayout

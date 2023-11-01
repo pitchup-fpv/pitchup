@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { FC, useContext } from 'react';
 import { ConfigContext } from '../ConfigProvider/ConfigProvider';
 import { ReactElement } from 'react'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faRecycle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export type DeviceWizardProps = {
@@ -43,25 +43,25 @@ export const DeviceWizard: FC = () => {
                 <Box flexGrow={1}>
                     <Heading>Select your gear:</Heading>
                 </Box>
-                <Box onClick={reset}>
-                    <FontAwesomeIcon icon={faCoffee} />
+                <Box onClick={reset} className="linklike" >
+                    <FontAwesomeIcon fontSize="32px" icon={faRecycle} />
                 </Box>
             </Box>
             <hr style={{ marginBottom: "1em" }} />
-            <Heading size="h2">Drone</Heading>
+            <Heading level="h2">Drone</Heading>
             <Box padding={"1em"}>
                 <DroneSelector configs={drones} />
             </Box>
-            <Heading size="h2">Radio</Heading>
+            <Heading level="h2">Radio</Heading>
             <Box padding={"1em"}>
                 <RadioSelector configs={radios} />
             </Box>
-            <Heading size="h2">Goggles</Heading>
+            <Heading level="h2">Goggles</Heading>
             <Box padding={"1em"}>
                 <GoggleSelector configs={goggles} />
             </Box>
             <Box display="flex" justifyContent={"flex-end"}>
-                <Button onClick={onPress} color="primary">Get Started</Button>
+                <Button onClick={onPress}>Get Started</Button>
             </Box>
         </Box>
 

@@ -25,12 +25,50 @@ const sourceCodePro = Source_Code_Pro({
   display: 'swap',
 });
 
+const palette = {
+  primary: {
+    color: "black",
+    solidBg: '#ffd368',
+    solidHoverBg: '#f4fc61',
+    solidActiveBg: 'purple',
+    solidActiveBorder: 'red',
+    solidDisabledBg: 'yellow',
+    solidDisabledBorder: 'green',
+  },
+};
+
 const theme = extendTheme({
+  colorSchemes: {
+    light: { palette },
+    dark: { palette },
+  },
   fontFamily: {
     body: inter.style.fontFamily,
     display: inter.style.fontFamily,
     code: sourceCodePro.style.fontFamily,
   },
+  components: {
+    JoyButton: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.color === 'primary' && {
+            color: theme.vars.palette.background.level1,
+          }),
+        }),
+      },
+    },
+    JoyCheckbox: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.color === 'primary' && {
+            " span": {
+              color: theme.vars.palette.background.level1,
+            }
+          }),
+        }),
+      },
+    },
+  }
 });
 
 export default theme;

@@ -28,18 +28,27 @@ export const Breadcrumbs: FC = () => {
         return null;
     }
 
-    return <Box display="grid" style={{ gridTemplateColumns: "2fr 1fr 2fr" }} alignItems="center">
-        <Box flexGrow="1" display="flex" justifyContent="center">
-            {prevArticle && <Box display={"flex"} flexDirection="column" alignItems="center">
-                <Link onClick={() => setCurrentArticle(Math.max(0, currentArticle - 1))} href={prevArticle}>
+    return <Box className="breadcrumbs" display="grid" style={{ gridTemplateColumns: "2fr 1fr 2fr" }} alignItems="center">
+        <Box width="100%" flexGrow="1" display="flex" justifyContent="flex-start">
+            {prevArticle
+                ? <Box display={"flex"} flexDirection="column" alignItems="flex-start">
+                    <Link onClick={() => setCurrentArticle(Math.max(0, currentArticle - 1))} href={prevArticle}>
+                        <Box display="flex">
+                            <Box marginRight="1em">
+                                <FontAwesomeIcon icon={faArrowLeft} />
+                            </Box>
+                            <Box fontStyle="bold">{prevArticleData.title}</Box>
+                        </Box>
+                    </Link>
+                </Box>
+                : <Box display={"flex"} flexDirection="column" alignItems="flex-start">
                     <Box display="flex">
                         <Box marginRight="1em">
                             <FontAwesomeIcon icon={faArrowLeft} />
                         </Box>
-                        <Box fontStyle="bold">{prevArticleData.title}</Box>
                     </Box>
-                </Link>
-            </Box>}
+                </Box>
+            }
         </Box>
         <Box display="flex" justifyContent="center">
             {currentArticle > -1 && <Box display={"flex"} alignItems="center">
@@ -50,17 +59,26 @@ export const Breadcrumbs: FC = () => {
                 </Link>
             </Box>}
         </Box>
-        <Box flexGrow="1" display="flex" justifyContent="center">
-            {nextArticle && <Box display="flex" flexDirection="column" alignItems="center">
-                <Link href={nextArticle} onClick={() => setCurrentArticle(currentArticle + 1)}>
+        <Box width="100%" flexGrow="1" display="flex" justifyContent="flex-end">
+            {nextArticle
+                ? <Box display="flex" flexDirection="column" alignItems="flex-end">
+                    <Link href={nextArticle} onClick={() => setCurrentArticle(currentArticle + 1)}>
+                        <Box display="flex">
+                            <Box fontStyle="bold">{nextArticleData.title}</Box>
+                            <Box marginLeft="1em">
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </Box>
+                        </Box>
+                    </Link>
+                </Box>
+                : <Box display="flex" flexDirection="column" alignItems="flex-end">
                     <Box display="flex">
-                        <Box fontStyle="bold">{nextArticleData.title}</Box>
                         <Box marginLeft="1em">
                             <FontAwesomeIcon icon={faArrowRight} />
                         </Box>
                     </Box>
-                </Link>
-            </Box>}
+                </Box>
+            }
         </Box>
     </Box>
 }

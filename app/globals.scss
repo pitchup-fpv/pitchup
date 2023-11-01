@@ -45,6 +45,8 @@ $blockquote-border-color: #fafafa;
 }
 
 @mixin list-style {
+  margin-bottom: 1.5em;
+
   li {
     margin-left: 1.1em;
   }
@@ -66,15 +68,62 @@ body {
   line-height: 1.45;
   padding: .25rem;
 
+
+  .linklike {
+    @include links;
+  }
+
+  .header {
+
+    .header-menu {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 3em;
+      gap: 3em;
+
+      .header-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: $link-color;
+        height: 100%;
+
+        a {
+          @include links;
+        }
+
+        svg {
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  .breadcrumbs {
+    a {
+      @include links;
+    }
+  }
+
   .content {
+
+    p {
+      margin-bottom: 1.5em;
+    }
 
     a {
       @include links;
     }
 
+    img, svg {
+      margin-bottom: 32px;
+    }
+
     ul {
       @include list-style;
-
+      
       li {
         list-style-type: disc;
       }
