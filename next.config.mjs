@@ -9,7 +9,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // Optionally, add any other Next.js config below
   output: "export",
-  basePath: "/pitchup",
+  basePath: "/",
   images: {
     unoptimized: true,
   }
