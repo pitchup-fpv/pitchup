@@ -56,6 +56,12 @@ const CustomImg: FC = (props) => {
   </Box>
 }
 
+export const Img = ({src}: {src: string}) => (
+  <div style={{ border: "1px solid white"}} >
+      <img src={src} />
+  </div>
+)
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
@@ -64,6 +70,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children, ...rest }) => <CustomHeading level="h3" {...rest}>{children}</CustomHeading>,
     h4: ({ children, ...rest }) => <CustomHeading level="h4" {...rest}>{children}</CustomHeading>,
     a: ({ children, ...rest }) => <CustomLink {...rest}>{children}</CustomLink>,
-    img: ({ children, ...rest }) => <CustomImg {...rest}>{children}</CustomImg>,
+    Img: ({ src }) => <Img src={src!} />,
   }
 }

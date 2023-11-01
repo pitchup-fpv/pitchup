@@ -2,6 +2,7 @@ import rehypeSlug from 'rehype-slug';
 import createMDX from '@next/mdx'
 import rehypeToc from "rehype-toc";
 import { rehypeSection } from './plugins/rehypeSections.mjs';
+import { rehypeImageWrapper } from './plugins/rehypeImageWrapper.mjs';
 
 
 /** @type {import('next').NextConfig} */
@@ -31,6 +32,7 @@ const withMDX = createMDX({
         },
       }],
       rehypeSection,
+      rehypeImageWrapper,
     ],
   },
 })

@@ -5,12 +5,6 @@ function parseDepth(str) {
   return parseInt(str[1], 10)
 }
 
-function wDepth(div) {
-  const divClassNames = div.properties.className
-  const divDepth = parseDepth(divClassNames[0])
-  return divDepth
-}
-
 function w(depth, children) {
   return h(`section.h${depth}Wrapper.headingWrapper`, children)
 }
