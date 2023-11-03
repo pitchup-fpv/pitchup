@@ -216,7 +216,7 @@ const BatteryStatsCalculator = () => {
 
 
     return <Box display="flex" flexDirection="column" alignItems="stretch">
-        <Title title="Battery Stats Calculator" url="/calc" />
+        <Title title="Battery Stats" url="/battery" />
         <Box width="100%" display="flex" justifyContent="center">
             <Box display="grid" style={{ alignItems: "center", width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
                 <BatteryMahInput />
@@ -233,7 +233,7 @@ const BatteryStatsCalculator = () => {
             </Box>
         </Box>
         <Box height="3em" />
-        <Title title="Charge Speed" url="/calc" size="h2" />
+        <Title title="Charging Speed" url="/battery" size="h2" />
         <Box width="100%" display="flex" justifyContent="center">
             <Box display="grid" style={{ alignItems: "center", width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
                 <ChargerWattsInput />

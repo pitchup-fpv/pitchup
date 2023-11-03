@@ -14,7 +14,7 @@ export const HeaderMenu = () => {
         </Box>
         
         <Box className="header-item">
-            <Link href="/calc">
+            <Link href="/battery">
                 <FontAwesomeIcon icon={faBatteryThreeQuarters} />
             </Link>
         </Box>
