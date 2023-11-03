@@ -4,7 +4,7 @@
 import { FC, useState } from "react";
 import { DeviceSelector } from "../DeviceSelector/DeviceSelector";
 import { Config } from "@/src/types/Config";
-import { useStore } from "@/src/store";
+import { useWizardStore } from "@/src/stores/wizard";
 import useHasMounted from "@/src/hooks/useHasMounted";
 
 
@@ -20,7 +20,7 @@ export const GoggleSelector: FC<GoggleSelectorProps> = ({ configs }) => {
         setGoggleModel, 
         setGoggleFlags,
         setGoggleOptions 
-    } = useStore(state => state);
+    } = useWizardStore(state => state);
     
     const mounted = useHasMounted();
     console.log("wtf?", goggleModel, mounted);

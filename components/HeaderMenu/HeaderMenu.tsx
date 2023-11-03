@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { Box } from "@mui/joy"
 import Link from "next/link"
-import { faFileCircleQuestion, faHatWizard } from "@fortawesome/free-solid-svg-icons"
+import { faCalculator, faFileCircleQuestion, faHatWizard } from "@fortawesome/free-solid-svg-icons"
 
 
 export const HeaderMenu = () => {
@@ -10,6 +10,12 @@ export const HeaderMenu = () => {
         <Box className="header-item">
             <Link href="/">
                 <FontAwesomeIcon icon={faHatWizard} />
+            </Link>
+        </Box>
+        
+        <Box className="header-item">
+            <Link href="/calcs">
+                <FontAwesomeIcon icon={faCalculator} />
             </Link>
         </Box>
         

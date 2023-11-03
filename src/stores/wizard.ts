@@ -3,7 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 
 import { WizardConfig } from "../types/Config";
 
-interface Store {
+interface WizardStore {
     articles: string[];
     currentArticle: number;
     setArticles: (articles: string[]) => void;
@@ -33,7 +33,7 @@ interface Store {
     calculateArticles: (config: WizardConfig) => string;
 }
 
-export const useStore = create<Store>()(persist((set, get) => ({
+export const useWizardStore = create<WizardStore>()(persist((set, get) => ({
     articles: [],
     currentArticle: 0,
     setArticles: (articles: string[]) => set({ articles }),

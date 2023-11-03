@@ -73,6 +73,11 @@ body {
     @include links;
   }
 
+  .inverted {
+    color: rgb($background-rgb);
+    background-color: $link-color;
+  }
+
   .header {
 
     .header-menu {

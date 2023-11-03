@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { DeviceSelector } from "../DeviceSelector/DeviceSelector";
 import { Config } from "@/src/types/Config";
-import { useStore } from "@/src/store";
+import { useWizardStore } from "@/src/stores/wizard";
 import useHasMounted from "@/src/hooks/useHasMounted";
 
 
@@ -19,7 +19,7 @@ export const RadioSelector: FC<RadioSelectorProps> = ({ configs }) => {
         setRadioModel, 
         setRadioFlags,
         setRadioOptions, 
-    } = useStore(state => state);
+    } = useWizardStore(state => state);
 
     const mounted = useHasMounted();
 

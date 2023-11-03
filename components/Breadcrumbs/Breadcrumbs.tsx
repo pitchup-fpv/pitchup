@@ -1,6 +1,6 @@
 "use client"
 
-import { useStore } from "@/src/store";
+import { useWizardStore } from "@/src/stores/wizard";
 import { FC, useContext } from "react";
 import { IndexContext } from "../IndexProvider/IndexProvider";
 import Link from "next/link";
@@ -17,7 +17,7 @@ export const Breadcrumbs: FC = () => {
 
     const currentUrl = usePathname();
     const index = useContext(IndexContext);
-    const { articles, setCurrentArticle } = useStore(state => state);
+    const { articles, setCurrentArticle } = useWizardStore(state => state);
     const currentArticle = articles.indexOf(currentUrl);
     const prevArticle = articles[currentArticle - 1];
     const prevArticleData = index[prevArticle];

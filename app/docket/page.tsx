@@ -2,7 +2,7 @@
 
 import { IndexContext } from "@/components/IndexProvider/IndexProvider"
 import useHasMounted from "@/src/hooks/useHasMounted"
-import { useStore } from "@/src/store"
+import { useWizardStore } from "@/src/stores/wizard"
 import { Box, Typography } from "@mui/joy"
 import Link from "next/link"
 import { FC, useContext } from "react"
@@ -11,7 +11,7 @@ import { FC, useContext } from "react"
 const Docket: FC = () => {
     const mounted = useHasMounted()
     const index = useContext(IndexContext)
-    const { articles } = useStore(state => state)
+    const { articles } = useWizardStore(state => state)
     if (!mounted) {
         return null
     }

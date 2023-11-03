@@ -4,7 +4,7 @@ import { DroneSelector } from '@/components/DroneSelector/DroneSelector'
 import { GoggleSelector } from '@/components/GoggleSelector/GoggleSelector';
 import { Heading } from '@/components/Heading/Heading';
 import { RadioSelector } from '@/components/RadioSelector/RadioSelector';
-import { useStore } from '@/src/store';
+import { useWizardStore } from '@/src/stores/wizard';
 import { WizardConfig } from '@/src/types/Config';
 import { Box, Button } from '@mui/joy';
 import { useRouter } from 'next/navigation';
@@ -21,7 +21,7 @@ export type DeviceWizardProps = {
 export const DeviceWizard: FC = () => {
     const config = useContext(ConfigContext);
     const { drones, radios, goggles } = config;
-    const { setArticles, setDroneModel, setGoggleModel, setRadioModel, calculateArticles } = useStore(state => state);
+    const { setArticles, setDroneModel, setGoggleModel, setRadioModel, calculateArticles } = useWizardStore(state => state);
     const router = useRouter();
 
     const onPress = () => {
