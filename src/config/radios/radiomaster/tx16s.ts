@@ -1,6 +1,6 @@
 import { Config } from "@/src/types/Config";
 
-export const config = {
+export const tx16s = {
     name: "Radiomaster TX16S",
     articles: [
         "/radios/radiomaster/tx16s",

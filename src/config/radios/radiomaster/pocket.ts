@@ -1,6 +1,6 @@
 import { Config } from "@/src/types/Config";
 
-export const config = {
+export const pocket = {
     name: "Radiomaster Pocket",
     articles: [],
     flags: [],
