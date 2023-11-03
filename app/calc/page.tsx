@@ -5,9 +5,8 @@ import { CalculatorDisclaimer } from "@/components/Calculators/CalculatorDisclai
 import { CalculatorInput } from "@/components/Calculators/CalculatorInput";
 import useHasMounted from "@/src/hooks/useHasMounted";
 import { useChargerCalcStore } from "@/src/stores/chargerCalc";
-import { Box, Input, Link, Typography } from "@mui/joy"
+import { Box, Input, Link, Typography, TypographySystem } from "@mui/joy"
 import { FC } from "react";
-
 
 const ChargerWattsInput = () => {
     const { chargerWatts, setChargerWatts } = useChargerCalcStore(state => state);
@@ -117,37 +116,96 @@ const ChargeAmpsCalculation: FC<ChargeAmpsCalculationProps> = ({ chargeAmps, max
 
 const Disclaimer = () => {
     return <CalculatorDisclaimer>
-        <Box>Disclaimer</Box>
         <Box>These calculations are estimates and may not be accurate.</Box>
         <Box><b>NEVER</b> charge at a rate/amperage beyond the battery`s listed rating!</Box>
     </CalculatorDisclaimer>;
 }
 
-const Title = (props: { title: string, url: string }) => {
-    return <Typography level="h1">
+type DischargeVoltageCalculationProps = {
+    cellCount: number
+    dischargeVoltage: number
+}
+
+const DischargeVoltageCalculation: FC<DischargeVoltageCalculationProps> = ({ cellCount, dischargeVoltage }) => {
+    return <Calculation
+        label="Discharge Voltage"
+        equation={`3.7V * ${cellCount} cells`}
+        value={dischargeVoltage}
+        unit="V"
+    />;
+}
+
+type NominalVoltageCalculationProps = {
+    cellCount: number
+    nominalVoltage: number
+}
+
+const NominalVoltageCalculation: FC<NominalVoltageCalculationProps> = ({ cellCount, nominalVoltage }) => {
+    return <Calculation
+        label="Nominal Voltage"
+        equation={`3.7V * ${cellCount} cells`}
+        value={nominalVoltage}
+        unit="V"
+    />;
+}
+
+type OverchargedVoltageCalculationProps = {
+    cellCount: number
+    overchargedVoltage: number
+}
+
+const OverchargedVoltageCalculation: FC<OverchargedVoltageCalculationProps> = ({ cellCount, overchargedVoltage }) => {
+    return <Calculation
+        label="Overcharged Voltage"
+        equation={`4.3V * ${cellCount} cells`}
+        value={overchargedVoltage}
+        unit="V"
+    />;
+}
+
+type StorageVoltageCalculationProps = {
+    cellCount: number
+    storageVoltage: number
+}
+
+const Title = (props: { title: string, url: string, size?: keyof TypographySystem }) => {
+    return <Typography level={props.size ?? 'h1'}>
         <Link href={props.url}>
             {props.title}
         </Link>
     </Typography>
 }
 
-const ChargeSpeedCalculator = () => {
+const StorageVoltageCalculation: FC<StorageVoltageCalculationProps> = ({ cellCount, storageVoltage }) => {
+    return <Calculation
+        label="Storage Voltage"
+        equation={`3.8V * ${cellCount} cells`}
+        value={storageVoltage}
+        unit="V"
+    />;
+}
+
+const BatteryStatsCalculator = () => {
     let {
-        chargerWatts,
         batteryMah,
         cellCount,
+        chargerWatts,
     } = useChargerCalcStore(state => state);
 
     const mounted = useHasMounted();
 
     if (!mounted) {
-        chargerWatts = 0;
         batteryMah = 0;
         cellCount = 0;
+        chargerWatts = 0;
     }
 
-    const batteryAmps = batteryMah / 1000.0;
+    const nominalVoltage = 3.7 * cellCount;
     const fullyChargedVoltage = 4.2 * cellCount;
+    const overchargedVoltage = 4.3 * cellCount;
+    const storageVoltage = 3.8 * cellCount;
+
+    const batteryAmps = batteryMah / 1000.0;
     const trueMaxChargeRate = Math.floor(chargerWatts / fullyChargedVoltage);
     const maxChargeRate = Math.min(5, trueMaxChargeRate);
     const chargeAmps = [] as number[];
@@ -156,13 +214,29 @@ const ChargeSpeedCalculator = () => {
         chargeAmps.push(maxChargeAmps);
     }
 
+
     return <Box display="flex" flexDirection="column" alignItems="stretch">
-        <Title title="Charge Speed Calculator" url="/calcs/charge-speed-calculator" />
+        <Title title="Battery Stats Calculator" url="/calc" />
+        <Box width="100%" display="flex" justifyContent="center">
+            <Box display="grid" style={{ alignItems: "center", width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
+                <BatteryMahInput />
+                <CellCountInput />
+            </Box>
+        </Box>
+        <Box height="3em" />
+        <Box width="100%" display="flex" justifyContent="center">
+            <Box display="grid" style={{ width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
+                <StorageVoltageCalculation cellCount={cellCount} storageVoltage={storageVoltage} />
+                <NominalVoltageCalculation cellCount={cellCount} nominalVoltage={nominalVoltage} />
+                <FullyChargedVoltageCalculation cellCount={cellCount} fullyChargedVoltage={fullyChargedVoltage} />
+                <OverchargedVoltageCalculation cellCount={cellCount} overchargedVoltage={overchargedVoltage} />
+            </Box>
+        </Box>
+        <Box height="3em" />
+        <Title title="Charge Speed" url="/calc" size="h2" />
         <Box width="100%" display="flex" justifyContent="center">
             <Box display="grid" style={{ alignItems: "center", width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
                 <ChargerWattsInput />
-                <BatteryMahInput />
-                <CellCountInput />
             </Box>
         </Box>
         <Box height="3em" />
@@ -181,11 +255,4 @@ const ChargeSpeedCalculator = () => {
     </Box>
 }
 
-export default ChargeSpeedCalculator
-
-
-
-
-
-
-
+export default BatteryStatsCalculator
