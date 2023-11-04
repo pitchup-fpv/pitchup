@@ -117,7 +117,8 @@ const ChargeAmpsCalculation: FC<ChargeAmpsCalculationProps> = ({ chargeAmps, max
 const Disclaimer = () => {
     return <CalculatorDisclaimer>
         <Box>These calculations are estimates and may not be accurate.</Box>
-        <Box><b>NEVER</b> charge at a rate/amperage beyond the battery`s listed rating!</Box>
+        <Box>We recommend <i>always</i> charging batteries at a <b>1C</b> rate.</Box>
+        <Box><b>NEVER</b> charge at a rate beyond the battery&pos;s listed rating!</Box>
     </CalculatorDisclaimer>;
 }
 
@@ -233,7 +234,7 @@ const BatteryStatsCalculator = () => {
             </Box>
         </Box>
         <Box height="3em" />
-        <Title title="Charging Speed" url="/battery" size="h2" />
+        <Title title="Charging Rates" url="/battery" size="h2" />
         <Box width="100%" display="flex" justifyContent="center">
             <Box display="grid" style={{ alignItems: "center", width: "80%", gridTemplateColumns: "1fr auto auto", gridGap: "1em" }}>
                 <ChargerWattsInput />
