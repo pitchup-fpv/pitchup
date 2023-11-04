@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client"
 
 import { Calculation } from "@/components/Calculators/Calculation";
@@ -118,7 +119,7 @@ const Disclaimer = () => {
     return <CalculatorDisclaimer>
         <Box>These calculations are estimates and may not be accurate.</Box>
         <Box>We recommend <i>always</i> charging batteries at a <b>1C</b> rate.</Box>
-        <Box><b>NEVER</b> charge at a rate beyond the battery&pos;s listed rating!</Box>
+        <Box><b>NEVER</b> charge at a rate beyond the battery's listed rating!</Box>
     </CalculatorDisclaimer>;
 }
 
