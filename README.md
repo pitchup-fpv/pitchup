@@ -14,12 +14,16 @@ Visit Pitchup at https://pitchup.ldlework.com
 
 ## User Guide
 
-Learn how to use Pitchup with our user guide: https://github.com/pitchup-fpv/pitchup/blob/main/docs/user-guide.md
+Learn how to use Pitchup with our user guide: https://pitchup.ldlework.com/docs/user-guide
 
 ## Contributing Guides
 
-Want to share your FPV knowledge? Add your own guides to Pitchup: https://github.com/pitchup-fpv/pitchup/blob/main/docs/adding-guides.md
+Want to share your FPV knowledge? Add your own guides to Pitchup: https://pitchup.ldlework.com/docs/adding-guides
 
 ## Contributing Gear
 
-Want to expand the wizard with new gear? Learn how here: https://github.com/pitchup-fpv/pitchup/blob/main/docs/adding-gear.md
+Want to expand the wizard with new gear? Learn how here: https://pitchup.ldlework.com/docs/adding-gear
+
+## Documentation
+
+All documentation can be found here: https://pitchup.ldlework.com/docs
